@@ -13,7 +13,13 @@
         // jQuery.ajax();
         // console.log("hiiii");
         $.ajax({
-            url: 'file.txt'
+            url: 'file1.txt',
+            success: function(){
+                console.log("works");
+            },
+            error: function(){
+                console.log("Something Went Wrong");
+            }
         });
     </script>
 </body>
