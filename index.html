@@ -13,9 +13,19 @@
         // jQuery.ajax();
         // console.log("hiiii");
         $.ajax({
-            url: 'file1.txt',
+            url: 'file.txt',
             success: function(){
                 console.log("works");
+            },
+            error: function(){
+                console.log("Something Went Wrong");
+            }
+        });
+
+        $.ajax({
+            url: 'hello.html',
+            success: function(){
+                console.log("working");
             },
             error: function(){
                 console.log("Something Went Wrong");
