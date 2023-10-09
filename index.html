@@ -47,18 +47,19 @@
         // });
 
         $('#load').on('click', function() {
-            console.log("You Clicked");
+            $.ajax({
+                url: 'file.txt',
+                success: function(data){
+                    console.log(data);
+                    // document.write(data);
+                },
+                error: function(){
+                    console.log("Something Went Wrong");
+                }
+            });
         })
 
-        $.ajax({
-            url: 'file.txt',
-            success: function(data){
-                console.log(data);
-            },
-            error: function(){
-                console.log("Something Went Wrong");
-            }
-        });
+        
 
         // $(document).ready(function () {
         //         $('.js-example-basic-single').select2();
