@@ -9,7 +9,9 @@
 <body>
     <h1>Hello jQuery_Ajax...!!!</h1>
     <hr>
-    <h4>Your Hometown:</h4>
+    <a href="#" id="load">Show me file content</a>
+    <div id="contents"></div>
+    <!-- <h4>Your Hometown:</h4>
     <select class="js-example-basic-single" name="state" title="Select Your Hometown">
         <option value="" disabled selected>Select</option>
         <option value="BS">Barishal</option>
@@ -20,17 +22,16 @@
         <option value="RP">Rangpur</option>
         <option value="MS">Mymensingh</option>        
         <option value="SL">Sylhet</option>
-    </select>
-
-    <style>
+    </select> -->
+    <!-- <style>
         /* Adjust the width as needed */
         .js-example-basic-single {
             width: 150px; /* You can change this value */
         }
-    </style>
+    </style> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
     <script>
         // jQuery.ajax();
@@ -45,6 +46,10 @@
         //     }
         // });
 
+        $('#load').on('click', function() {
+            console.log("You Clicked");
+        })
+
         $.ajax({
             url: 'file.txt',
             success: function(data){
@@ -55,9 +60,9 @@
             }
         });
 
-        $(document).ready(function () {
-                $('.js-example-basic-single').select2();
-            });
+        // $(document).ready(function () {
+        //         $('.js-example-basic-single').select2();
+        //     });
 
         // $.ajax({
         //     url: 'hello.html',
