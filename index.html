@@ -11,69 +11,27 @@
     <hr>
     <a href="#" id="load">Show me file content</a>
     <div id="contents"></div>
-    <!-- <h4>Your Hometown:</h4>
-    <select class="js-example-basic-single" name="state" title="Select Your Hometown">
-        <option value="" disabled selected>Select</option>
-        <option value="BS">Barishal</option>
-        <option value="CTG">Chattogram</option>
-        <option value="DK">Dhaka</option>
-        <option value="KL">Khulna</option>
-        <option value="RS">Rajshahi</option>
-        <option value="RP">Rangpur</option>
-        <option value="MS">Mymensingh</option>        
-        <option value="SL">Sylhet</option>
-    </select> -->
-    <!-- <style>
-        /* Adjust the width as needed */
-        .js-example-basic-single {
-            width: 150px; /* You can change this value */
-        }
-    </style> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
     <script>
-        // jQuery.ajax();
-        // console.log("hiiii");
-        // $.ajax({
-        //     url: 'file.txt',
-        //     success: function(){
-        //         console.log("works");
-        //     },
-        //     error: function(){
-        //         console.log("Something Went Wrong");
-        //     }
-        // });
-
         $('#load').on('click', function() {
+            var contents = $('#contents');
+            
             $.ajax({
                 url: 'file.txt',
+                cache: false,
                 success: function(data){
-                    console.log(data);
+                    // console.log(data);
+                       contents.text(data);
                     // document.write(data);
                 },
                 error: function(){
                     console.log("Something Went Wrong");
                 }
             });
-        })
-
-        
-
-        // $(document).ready(function () {
-        //         $('.js-example-basic-single').select2();
-        //     });
-
-        // $.ajax({
-        //     url: 'hello.html',
-        //     success: function(){
-        //         console.log("working");
-        //     },
-        //     error: function(){
-        //         console.log("Something Went Wrong");
-        //     }
-        // });
+        })      
     </script>
 </body>
 </html>
