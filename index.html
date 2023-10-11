@@ -14,8 +14,29 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
-
     <script>
+        $('#load').on('click', function() {
+            var contents = $('#contents');
+            
+            setInterval(function() {
+                console.log('Rafsan Ananta');
+            },1000);
+
+            $.ajax({
+                url: 'file.txt',
+                cache: false,
+                success: function(data){
+                    // console.log(data);
+                       contents.text(data);
+                    // document.write(data);
+                },
+                error: function(){
+                    console.log("Something Went Wrong");
+                }
+            });
+        })      
+    </script>
+    <!-- <script>
         $('#load').on('click', function() {
             var contents = $('#contents');
             
@@ -32,6 +53,6 @@
                 }
             });
         })      
-    </script>
+    </script> -->
 </body>
 </html>
