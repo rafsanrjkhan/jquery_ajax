@@ -10,11 +10,30 @@
     <h1>Hello jQuery_Ajax...!!!</h1>
     <hr>
     <!-- <a href="#" id="load"></a> -->
-    <div id="contents"></div>
+    <!-- <div id="contents"></div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
-    <script>
+    <script>        
+       
+            $.ajax({
+                url: 'file.txt',
+                type: 'GET',
+                data: {name: 'Rafsan'},
+                success: function(data){
+                    console.log(data);
+                    // document.write(data);
+                },
+                // error: function(){
+                //     console.log("Something Went Wrong");
+                // }
+            });
+
+       
+         
+</script>
+
+    <!-- <script>
       
             var info = $('#contents');
             
@@ -23,19 +42,19 @@
                     url: 'file.txt',
                     // cache: false,
                     success: function(data){
-                        // console.log(data);
                         info.text(data);
+                        console.log(data);
                         // document.write(data);
                     },
                     error: function(){
                         console.log("Something Went Wrong");
                     }
                 });
-            },1000);
+            },2000);
 
            
              
-    </script>
+    </script> -->
     <!-- <script>
         $('#load').on('click', function() {
             var contents = $('#contents');
