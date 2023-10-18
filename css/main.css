@@ -1,37 +1,41 @@
 /* Reset some default styles */
-body, ul {
+body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Style the navigation */
+/* Apply a basic style to the navigation bar */
 nav {
-    background-color: #333;
+    background-color: #c74343;
     color: white;
     padding: 10px;
 }
 
-ul {
+nav ul {
     list-style: none;
+    display: flex;
+    justify-content: space-around;
 }
 
-li {
-    display: inline;
-    margin-right: 20px;
-}
-
-a {
+nav a {
     text-decoration: none;
-    color: white;
-    /* font-weight: bold; */
+    color: rgb(212, 118, 118);
 }
 
-/* Add some styling to the section and h1 */
-/* #main {
-    background-color: #f2f2f2;
+/* Add some style to the navigation links */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Add a line break after the navigation bar */
+nav hr {
+    margin-top: 10px;
+}
+
+/* Apply some general styling to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #b92d2d;
     padding: 20px;
 }
-
-h1 {
-    color: #333;
-} */
