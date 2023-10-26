@@ -2,5 +2,6 @@
 header('Content-type: application/json');
 ?>
 {
-    "name": "alex"
+    "count": 10,
+    "results": ["Result One", "Result Two", "Result Three"]
 }
