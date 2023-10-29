@@ -9,11 +9,14 @@
 <body>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
+    <p id="count"></p>
+   <script>
         $.ajax({
             url: 'json.php',
+            dataType: 'json',
             success: function(data) {
-                console.log(data);
+                $('#count').text('Your search returned ' + data.count + ' results.');
+                // console.log(data.names);
             }
         });
     </script>
