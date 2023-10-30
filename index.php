@@ -12,29 +12,50 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- <p id="count"></p> -->
-    <p id="count"></p>
-    <div id="results"></div>
+    <p id="name"></p>
+    <div id="names"></div>
 
     <script>
         $.ajax({
             url: 'json.php',
             dataType: 'json',
             success: function(data) {
-                var count = $('#count'),
-                    results = $('#results');
+                var name = $('#name'),
+                    names = $('#names');
 
-                if (data.count) {
-                    count.text('Your search returned ' + data.count + ' results.');
+                if (data.name) {
+                    name.text('Your search returned ' + data.name + ' results.');
 
 
-                    $(data.results).each(function(index, value) {
-                        results.append($('<p></p>').text(value));
+                    $(data.names).each(function(index, value) {
+                        names.append($('<p></p>').text(value));
                     });
                 } else {
-                    count.text('No results.');
+                    name.text('No results.');
                 }
             }
         });
+
+        // $.ajax({
+        //     url: 'json.php',
+        //     dataType: 'json',
+        //     success: function(data) {
+        //         var count = $('#count'),
+        //             results = $('#results');
+
+        //         if (data.count) {
+        //             count.text('Your search returned ' + data.count + ' results.');
+
+
+        //             $(data.results).each(function(index, value) {
+        //                 results.append($('<p></p>').text(value));
+        //             });
+        //         } else {
+        //             count.text('No results.');
+        //         }
+        //     }
+        // });
+        
         // $.ajax({
         //     url: 'json.php',
         //     dataType: 'json',
