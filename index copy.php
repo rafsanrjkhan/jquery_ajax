@@ -8,7 +8,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
 </head>
 <body>
-    <nav>
+<nav>
         <ul>
             <li><a href="#" data-page="home">Home</a></li>
             <li><a href="#" data-page="download">Downloads</a></li>
@@ -33,6 +33,67 @@
 
             });
         }();
+    </script>
+
+
+<!-- 2nd Part -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <p id="name"></p>
+    <div id="names"></div> -->
+    <p id="count"></p>
+    <div id="results"></div>
+
+    <script>
+        // $.ajax({
+        //     url: 'json.php',
+        //     dataType: 'json',
+        //     success: function(data) {
+        //         var name = $('#name'),
+        //             names = $('#names');
+
+        //         if (data.name) {
+        //             name.text('Your search returned ' + data.name + ' results.');
+
+
+        //             $(data.names).each(function(index, value) {
+        //                 names.append($('<p></p>').text(value));
+        //             });
+        //         } else {
+        //             name.text('No results.');
+        //         }
+        //     }
+        // });
+
+        $.ajax({
+            url: 'json.php',
+            dataType: 'json',
+            success: function(data) {
+                var count = $('#count'),
+                    results = $('#results');
+
+                if (data.count) {
+                    count.text('Your search returned ' + data.count.toString() + ' results.');
+
+
+                    $(data.results).each(function(index, value) {
+                        results.append($('<p></p>').text(value));
+                    });
+                } else {
+                    count.text('No results.');
+                }
+            }
+        });
+        
+        // $.ajax({
+        //     url: 'json.php',
+        //     dataType: 'json',
+        //     success: function(data) {
+        //         $('#count').text('Your search returned ' + data.count + ' results.');
+        //         // console.log(data.names);
+        //     }
+        // });
     </script>
 </body>
 </html>

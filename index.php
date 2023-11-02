@@ -9,61 +9,45 @@
 </head>
 
 <body>
+    <label>
+        Name:
+        <input type="text" id="name">
+    </label>
+    <input type="submit" id="fetch">
+
+    <dl>
+        <dt>Age</dt>
+        <dd class="age">-</dd>
+
+        <dt>Location</dt>
+        <dd class="location">-</dd>
+
+        <dt>Job</dt>
+        <dd class="job">-</dd>
+    </dl>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- <p id="count"></p> -->
-    <p id="name"></p>
-    <div id="names"></div>
-
     <script>
-        $.ajax({
-            url: 'json.php',
-            dataType: 'json',
-            success: function(data) {
-                var name = $('#name'),
-                    names = $('#names');
-
-                if (data.name) {
-                    name.text('Your search returned ' + data.name + ' results.');
-
-
-                    $(data.names).each(function(index, value) {
-                        names.append($('<p></p>').text(value));
-                    });
-                } else {
-                    name.text('No results.');
+        $('#fetch').on('click', function() {
+            var name = $('#name').val();
+            $.ajax({
+                url: 'lookup.php',
+                dataType: 'json',
+                type: 'GET',
+                data: {name: name},
+                cache: false,
+                success: function(data) {
+                    if(data.exists) {
+                        // do something useful
+                        console.log(data.information);
+                    } else {
+                        alert('Not found.')
+                    }
+                    // console.log(data);
                 }
-            }
+
+            });
         });
-
-        // $.ajax({
-        //     url: 'json.php',
-        //     dataType: 'json',
-        //     success: function(data) {
-        //         var count = $('#count'),
-        //             results = $('#results');
-
-        //         if (data.count) {
-        //             count.text('Your search returned ' + data.count + ' results.');
-
-
-        //             $(data.results).each(function(index, value) {
-        //                 results.append($('<p></p>').text(value));
-        //             });
-        //         } else {
-        //             count.text('No results.');
-        //         }
-        //     }
-        // });
-        
-        // $.ajax({
-        //     url: 'json.php',
-        //     dataType: 'json',
-        //     success: function(data) {
-        //         $('#count').text('Your search returned ' + data.count + ' results.');
-        //         // console.log(data.names);
-        //     }
-        // });
     </script>
 </body>
 
