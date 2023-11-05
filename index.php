@@ -39,7 +39,10 @@
                 success: function(data) {
                     if(data.exists) {
                         // do something useful
-                        console.log(data.information);
+                        // console.log(data.information);
+                        for(var label in data.information) {
+                            $('.' + label).text(data.information[label]);
+                        }
                     } else {
                         alert('Not found.')
                     }
